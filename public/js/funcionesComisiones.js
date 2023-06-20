@@ -83,16 +83,17 @@ const actualizar = async () => {
   let porcentaje = document.getElementById('porcentaje').value;
   let observacion = document.getElementById('observacion').value;
   let total_venta = document.getElementById('total_ventas').value;
-  let total_comision = document.getElementById('total_comision').value;
+  let total_comision = parseFloat(document.getElementById('total_comision').value)
 let empleadoNombre = document.getElementById('empleado').value;
 
   const validateTotalVentaResult = validateTotalVenta();
   const validateFechaeditarResult = validateFechaEdit();
   const validatePorcentajeResult = validatePorcentaje();
+  const validateComisionResult = validateComision();
 
 
 
-  if ( validateTotalVentaResult && validateFechaeditarResult && validatePorcentajeResult) {
+  if ( validateTotalVentaResult && validateFechaeditarResult && validatePorcentajeResult && validateComisionResult) {
     
     // Realizar la solicitud de registro
 
@@ -376,7 +377,7 @@ const registrar = async () => {
 
 
   const validateComision = () => {
-    let comision = document.getElementById('total_comision');
+    let comision = parseFloat(document.getElementById('total_comision').value);
     let texto
     let expresion = /[0-9]/;
 
