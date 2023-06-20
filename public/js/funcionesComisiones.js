@@ -91,6 +91,7 @@ let empleadoNombre = document.getElementById('empleado').value;
   const validatePorcentajeResult = validatePorcentaje();
 
 
+
   if ( validateTotalVentaResult && validateFechaeditarResult && validatePorcentajeResult) {
     
     // Realizar la solicitud de registro
@@ -538,17 +539,18 @@ const registrar = async () => {
             'error'
           )
           return false;
-        // } else if (currentDay !== 29 || currentMonth !== parseInt(fecha.split('-')[1]) || currentYear !== parseInt(fecha.split('-')[0])) {
-        //   // Validar que la fecha ingresada sea el día 29 del mes y año actual
-        //   console.log(parseInt(fecha.split('-')[1]), parseInt(fecha.split('-')[0]))
-        //   texto = '<span style="color: #fff; background-color: #e6213f; padding: 3px;border-radius: 3px;">La fecha solo se puede editar  el día 29 del mes y año actual</span>';
-        //   document.getElementById('texto7').innerHTML = texto;
-        //   Swal.fire(
-        //     'Hay errores en algunos datos, reviselos nuevamente',
-        //     '',
-        //     'error'
-        //   )
-        //   return false;
+        } else if (currentDay !== 29 || currentMonth !== parseInt(fecha.split('-')[1]) || currentYear !== parseInt(fecha.split('-')[0])) {
+          // Validar que la fecha ingresada sea el día 29 del mes y año actual
+          console.log(parseInt(fecha.split('-')[1]), parseInt(fecha.split('-')[0]))
+          texto = '<span style="color: #fff; background-color: #e6213f; padding: 3px;border-radius: 3px;">La fecha solo se puede editar  el día 29 del mes y año actual</span>';
+          document.getElementById('texto7').innerHTML = texto;
+          Swal.fire(
+            'Hay errores en algunos datos, reviselos nuevamente',
+            '',
+            'error'
+          )
+          return false;
+
         } else {
           document.getElementById('texto7').innerHTML = '';
           return true;
