@@ -374,7 +374,39 @@ const registrar = async () => {
 
 
 
+  const validateComision = () => {
+    let comision = document.getElementById('total_comision');
+    let texto
+    let expresion = /[0-9]/;
 
+    if (comision === null || comision === '' || comision.length === 0) {
+       
+      texto = '<span style="color: #fff; background-color: #e6213f; padding: 3px;border-radius: 3px;">El total de la comisión no puede estar vacia</span>';
+      document.getElementById('texto5').innerHTML = texto;
+      Swal.fire(
+        'Hay errores en algunos datos, reviselos nuevamente',
+        '',
+        'error'
+      )
+      return false;
+    }else if (!expresion.test(comision)) {
+        
+      texto = '<span style="color: #fff; background-color: #e6213f; padding: 3px;border-radius: 3px;">El total solo puede contener numeros</span>';
+      document.getElementById('texto5').innerHTML = texto;
+      Swal.fire(
+        'Hay errores en algunos datos, reviselos nuevamente',
+        '',
+        'error'
+      )
+      return false;
+    }else {
+        
+      document.getElementById('texto5').innerHTML = '';
+      return true;
+
+    }
+  }; 
+  
 
 
 
